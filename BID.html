@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IRE | Modern Nigerian Dining</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    background: rgba(0,0,0,0.75);
+
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.logo span {
+    color: #d89b3d;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #ddd;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #d89b3d;
+}
+
+.nav-btn {
+    border: 1px solid #d89b3d;
+    color: #d89b3d;
+
+    padding: 10px 20px;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #d89b3d;
+    color: #111;
+}
+
+.menu-btn {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 7%;
+
+    background:
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.9),
+            rgba(0,0,0,0.3)
+        );
+}
+
+.hero-content {
+    position: relative;
+
+    max-width: 700px;
+
+    animation: fadeUp 1s ease;
+}
+
+.eyebrow {
+    color: #d89b3d;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(55px, 9vw, 110px);
+
+    line-height: 0.92;
+
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+}
+
+.hero-text {
+    max-width: 500px;
+
+    color: #ddd;
+
+    font-size: 17px;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.primary {
+    background: #d89b3d;
+
+    color: #111;
+}
+
+.secondary {
+    border: 1px solid white;
+
+    color: white;
+}
+
+.scroll {
+    position: absolute;
+
+    bottom: 30px;
+
+    right: 7%;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #aaa;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    padding: 130px 10%;
+
+    text-align: center;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.intro h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(35px, 5vw, 65px);
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.intro > p:last-child {
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #999;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu-section {
+    padding: 100px 7%;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 30px;
+
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(35px, 5vw, 60px);
+
+    line-height: 1;
+}
+
+.section-heading > p {
+    max-width: 350px;
+
+    color: #999;
+}
+
+.filters {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+}
+
+.filter {
+    padding: 10px 20px;
+
+    border: 1px solid #444;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.filter:hover,
+.filter.active {
+    background: #d89b3d;
+
+    border-color: #d89b3d;
+
+    color: #111;
+}
+
+.food-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+
+    gap: 25px;
+}
+
+.food-card {
+    background: #1a1a1a;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+}
+
+.food-image {
+    height: 270px;
+
+    overflow: hidden;
+}
+
+.food-image img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.food-card:hover img {
+    transform: scale(1.08);
+}
+
+.food-details {
+    padding: 22px;
+}
+
+.food-category {
+    color: #d89b3d;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.food-details h3 {
+    font-family: Georgia, serif;
+
+    font-size: 23px;
+}
+
+.price {
+    display: block;
+
+    color: #d89b3d;
+
+    font-weight: bold;
+
+    font-size: 17px;
+
+    margin: 10px 0;
+}
+
+.food-details > p {
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+    padding: 120px 7%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    background: #181818;
+}
+
+.story-image {
+    overflow: hidden;
+
+    border-radius: 15px;
+}
+
+.story-image img {
+    transition: 0.5s;
+}
+
+.story-image:hover img {
+    transform: scale(1.04);
+}
+
+.story-content h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(40px, 5vw, 65px);
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.story-content p:not(.eyebrow) {
+    color: #999;
+
+    margin-bottom: 20px;
+
+    max-width: 500px;
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience {
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 80px 7%;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.8)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.experience h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px, 7vw, 85px);
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.experience div > p:last-child {
+    color: #ddd;
+}
+
+
+/* =========================
+   RESERVATION
+========================= */
+
+.reservation {
+    padding: 130px 7%;
+
+    text-align: center;
+}
+
+.reservation h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(40px, 6vw, 75px);
+
+    margin-bottom: 20px;
+}
+
+.reservation > p:not(.eyebrow) {
+    color: #999;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 60px 7%;
+
+    text-align: center;
+
+    background: #080808;
+}
+
+.footer-logo {
+    font-size: 27px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: #d89b3d;
+}
+
+footer > p {
+    color: #777;
+}
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin: 25px 0;
+}
+
+.footer-links a {
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.copyright {
+    margin-top: 25px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .navbar nav,
+    .nav-btn {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        padding: 120px 5% 80px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .scroll {
+        display: none;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading > p {
+        margin-top: 20px;
+    }
+
+    .story {
+        grid-template-columns: 1fr;
+
+        padding: 80px 5%;
+    }
+
+    .intro,
+    .menu-section,
+    .reservation {
+        padding-left: 5%;
+
+        padding-right: 5%;
+    }
+
+    .food-image {
+        height: 230px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        IRE<span>.</span>
+    </a>
+
+    <nav id="navigation">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#menu">
+            Menu
+        </a>
+
+        <a href="#story">
+            Our Story
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
+    <a
+        href="#reservation"
+        class="nav-btn">
+
+        Reserve Table
+
+    </a>
+
+    <button
+        class="menu-btn"
+        onclick="toggleMenu()">
+
+        ☰
+
+    </button>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section
+    class="hero"
+    id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            MODERN NIGERIAN DINING
+        </p>
+
+        <h1>
+            A taste<br>
+            worth<br>
+            remembering.
+        </h1>
+
+        <p class="hero-text">
+
+            Bold Nigerian flavours,
+            carefully crafted into an
+            unforgettable dining experience.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#menu"
+                class="btn primary">
+
+                Explore Menu
+
+            </a>
+
+            <a
+                href="#reservation"
+                class="btn secondary">
+
+                Reserve a Table
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll">
+
+        SCROLL ↓
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
+<section class="intro">
+
+    <p class="eyebrow">
+        WELCOME TO IRE
+    </p>
+
+    <h2>
+
+        Where Nigerian tradition
+        meets modern creativity.
+
+    </h2>
+
+    <p>
+
+        From smoky jollof rice to perfectly
+        grilled meats, every plate at IRE
+        tells a story.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section
+    class="menu-section"
+    id="menu">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                OUR MENU
+            </p>
+
+            <h2>
+                Made with passion.
+            </h2>
+
+        </div>
+
+        <p>
+
+            Discover some of our signature
+            dishes, prepared fresh by our chefs.
+
+        </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            onclick="filterMenu('all', this)">
+
+            All
+
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterMenu('rice', this)">
+
+            Rice
+
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterMenu('protein', this)">
+
+            Protein
+
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterMenu('dessert', this)">
+
+            Dessert
+
+        </button>
+
+    </div>
+
+
+
+    <!-- FOOD GRID -->
+
+    <div class="food-grid">
+
+
+        <!-- FOOD 1 -->
+
+        <article
+            class="food-card"
+            data-category="rice">
+
+            <div class="food-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=900&q=80"
+                    alt="Jollof Rice">
+
+            </div>
+
+            <div class="food-details">
+
+                <p class="food-category">
+                    SIGNATURE
+                </p>
+
+                <h3>
+                    Smoky Jollof
+                </h3>
+
+                <span class="price">
+                    ₦6,500
+                </span>
+
+                <p>
+
+                    Rich Nigerian jollof rice
+                    with our signature smoky flavour.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOOD 2 -->
+
+        <article
+            class="food-card"
+            data-category="protein">
+
+            <div class="food-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80"
+                    alt="Grilled Steak">
+
+            </div>
+
+            <div class="food-details">
+
+                <p class="food-category">
+                    CHEF'S SPECIAL
+                </p>
+
+                <h3>
+                    Fire-Grilled Steak
+                </h3>
+
+                <span class="price">
+                    ₦12,000
+                </span>
+
+                <p>
+
+                    Tender grilled beef served
+                    with our signature pepper sauce.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOOD 3 -->
+
+        <article
+            class="food-card"
+            data-category="rice">
+
+            <div class="food-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=80"
+                    alt="Fried Rice">
+
+            </div>
+
+            <div class="food-details">
+
+                <p class="food-category">
+                    FAVOURITE
+                </p>
+
+                <h3>
+                    Signature Fried Rice
+                </h3>
+
+                <span class="price">
+                    ₦7,000
+                </span>
+
+                <p>
+
+                    Fragrant fried rice prepared
+                    with premium ingredients.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOOD 4 -->
+
+        <article
+            class="food-card"
+            data-category="protein">
+
+            <div class="food-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=80"
+                    alt="Grilled Chicken">
+
+            </div>
+
+            <div class="food-details">
+
+                <p class="food-category">
+                    GRILLED
+                </p>
+
+                <h3>
+                    Ire Chicken
+                </h3>
+
+                <span class="price">
+                    ₦8,500
+                </span>
+
+                <p>
+
+                    Juicy grilled chicken finished
+                    with our house seasoning.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOOD 5 -->
+
+        <article
+            class="food-card"
+            data-category="dessert">
+
+            <div class="food-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=80"
+                    alt="Dessert">
+
+            </div>
+
+            <div class="food-details">
+
+                <p class="food-category">
+                    DESSERT
+                </p>
+
+                <h3>
+                    Golden Dessert
+                </h3>
+
+                <span class="price">
+                    ₦4,500
+                </span>
+
+                <p>
+
+                    A beautiful sweet ending
+                    to your dining experience.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     STORY
+========================= -->
+
+<section
+    class="story"
+    id="story">
+
+    <div class="story-image">
+
+        <img
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
+            alt="Restaurant Interior">
+
+    </div>
+
+
+    <div class="story-content">
+
+        <p class="eyebrow">
+            OUR STORY
+        </p>
+
+        <h2>
+
+            Food is more than
+            what's on the plate.
+
+        </h2>
+
+        <p>
+
+            IRE was created from a simple idea:
+            Nigerian food deserves to be experienced
+            in new and exciting ways.
+
+        </p>
+
+        <p>
+
+            We combine traditional flavours with
+            modern techniques to create meals that
+            bring people together.
+
+        </p>
+
+        <a
+            href="#reservation"
+            class="btn primary">
+
+            Experience IRE
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section class="experience">
+
+    <div>
+
+        <p class="eyebrow">
+            THE IRE EXPERIENCE
+        </p>
+
+        <h2>
+
+            Come hungry.<br>
+            Leave inspired.
+
+        </h2>
+
+        <p>
+
+            Great food. Beautiful atmosphere.
+            Memorable moments.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RESERVATION
+========================= -->
+
+<section
+    class="reservation"
+    id="reservation">
+
+    <p class="eyebrow">
+        RESERVATIONS
+    </p>
+
+    <h2>
+        Your table is waiting.
+    </h2>
+
+    <p>
+
+        Make your next meal an experience.
+
+    </p>
+
+    <a
+        href="https://wa.me/2348109000364"
+        class="btn primary"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Reserve via WhatsApp
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="contact">
+
+    <div class="footer-logo">
+
+        IRE<span>.</span>
+
+    </div>
+
+    <p>
+        Modern Nigerian Dining
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#menu">
+            Menu
+        </a>
+
+        <a href="#story">
+            Our Story
+        </a>
+
+        <a href="#reservation">
+            Reservations
+        </a>
+
+    </div>
+
+    <p class="copyright">
+
+        © 2026 IRE.
+        All rights reserved.
+
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   MENU FILTER
+========================= */
+
+function filterMenu(category, button) {
+
+    const cards =
+        document.querySelectorAll(".food-card");
+
+    const buttons =
+        document.querySelectorAll(".filter");
+
+
+    buttons.forEach(function(btn) {
+
+        btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+    cards.forEach(function(card) {
+
+        const cardCategory =
+            card.getAttribute("data-category");
+
+
+        if (
+            category === "all" ||
+            cardCategory === category
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu() {
+
+    const navigation =
+        document.getElementById("navigation");
+
+
+    if (navigation.style.display === "flex") {
+
+        navigation.style.display = "none";
+
+    } else {
+
+        navigation.style.display = "flex";
+
+        navigation.style.flexDirection = "column";
+
+        navigation.style.position = "absolute";
+
+        navigation.style.top = "70px";
+
+        navigation.style.left = "0";
+
+        navigation.style.width = "100%";
+
+        navigation.style.padding = "25px";
+
+        navigation.style.background = "#111";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
